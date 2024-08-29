@@ -28,12 +28,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install aniso8601 click Flask Flask-RESTful Flask-SQLAlchemy greenlet itsdangerous Jinja2 MarkupSafe marshmallow marshmallow-sqlalchemy pytz six SQLAlchemy Werkzeug Flask-jwt-extended flask-cors celery redis requests psycopg2 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
+    - name: Lint with flask
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        # flask run 
+        flask run 
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flask stop
     - name: Test with pytest
       run: |
         pytest
